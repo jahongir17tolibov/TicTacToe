@@ -1,9 +1,12 @@
 package com.jt17.tictactoe
 
 import android.annotation.SuppressLint
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -22,6 +25,8 @@ class Game : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+
+        change_color(R.color.blue_theme)
 
         val colors_setBTN = findViewById<MaterialCardView>(R.id.colors)
         val main_background = findViewById<RelativeLayout>(R.id.backgroundMAIN)
@@ -48,24 +53,37 @@ class Game : AppCompatActivity() {
 
         backg1.setOnClickListener {
             main_background.setBackgroundResource(R.drawable.game_bckg)
+            change_color(R.color.blue_theme)
             Toast.makeText(this, "Blue color is set", Toast.LENGTH_SHORT).show()
         }
 
         backg2.setOnClickListener {
             main_background.setBackgroundResource(R.drawable.game_bckg_red)
+            change_color(R.color.red_theme)
             Toast.makeText(this, "Red color is set", Toast.LENGTH_SHORT).show()
         }
 
         backg3.setOnClickListener {
             main_background.setBackgroundResource(R.drawable.game_bckg_green)
+            change_color(R.color.gree_theme)
             Toast.makeText(this, "Green color is set", Toast.LENGTH_SHORT).show()
         }
 
         backg4.setOnClickListener {
             main_background.setBackgroundResource(R.drawable.game_bckg_yellow)
+            change_color(R.color.yellow_theme)
             Toast.makeText(this, "Yellow color is set", Toast.LENGTH_SHORT).show()
         }
 
+    }
+
+    private fun change_color(set_col: Int) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            val window = this.window
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.statusBarColor = this.resources.getColor(set_col)
+        }
     }
 
     fun onClick(view: View) {

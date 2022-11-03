@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
 import com.google.android.material.card.MaterialCardView
 
 class Game : AppCompatActivity() {
@@ -14,9 +16,55 @@ class Game : AppCompatActivity() {
     var count2 = 0
     var first_GRlist = mutableListOf<Int>()
     var second_GRlist = mutableListOf<Int>()
+    var click_color = true
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+
+        val colors_setBTN = findViewById<MaterialCardView>(R.id.colors)
+        val main_background = findViewById<RelativeLayout>(R.id.backgroundMAIN)
+        val backg1 = findViewById<MaterialCardView>(R.id.blue_bckg)
+        val backg2 = findViewById<MaterialCardView>(R.id.red_bckg)
+        val backg3 = findViewById<MaterialCardView>(R.id.green_bckg)
+        val backg4 = findViewById<MaterialCardView>(R.id.yellow_bckg)
+
+        colors_setBTN.setOnClickListener {
+            if (click_color) {
+                backg1.visibility = View.VISIBLE
+                backg2.visibility = View.VISIBLE
+                backg3.visibility = View.VISIBLE
+                backg4.visibility = View.VISIBLE
+                click_color = false
+            } else {
+                backg1.visibility = View.INVISIBLE
+                backg2.visibility = View.INVISIBLE
+                backg3.visibility = View.INVISIBLE
+                backg4.visibility = View.INVISIBLE
+                click_color = true
+            }
+        }
+
+        backg1.setOnClickListener {
+            main_background.setBackgroundResource(R.drawable.game_bckg)
+            Toast.makeText(this, "Blue color is set", Toast.LENGTH_SHORT).show()
+        }
+
+        backg2.setOnClickListener {
+            main_background.setBackgroundResource(R.drawable.game_bckg_red)
+            Toast.makeText(this, "Red color is set", Toast.LENGTH_SHORT).show()
+        }
+
+        backg3.setOnClickListener {
+            main_background.setBackgroundResource(R.drawable.game_bckg_green)
+            Toast.makeText(this, "Green color is set", Toast.LENGTH_SHORT).show()
+        }
+
+        backg4.setOnClickListener {
+            main_background.setBackgroundResource(R.drawable.game_bckg_yellow)
+            Toast.makeText(this, "Yellow color is set", Toast.LENGTH_SHORT).show()
+        }
 
     }
 

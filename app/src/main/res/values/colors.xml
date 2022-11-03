@@ -8,4 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
+    <color name="main_page">#8E96A7</color>
+    <color name="blue_theme">#9EB6F2</color>
+    <color name="red_theme">#F29E9E</color>
+    <color name="gree_theme">#ABF39E</color>
+    <color name="yellow_theme">#F2E99D</color>
 </resources>

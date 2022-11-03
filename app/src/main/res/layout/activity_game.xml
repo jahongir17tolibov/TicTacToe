@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backgroundMAIN"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/game_bckg"
@@ -44,6 +45,67 @@
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/blue_bckg"
+        style="@style/Colors_Comp"
+        android:layout_toEndOf="@id/colors"
+        app:cardCornerRadius="20dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/game_bckg" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/red_bckg"
+        style="@style/Colors_Comp"
+        android:layout_toEndOf="@id/blue_bckg"
+        app:cardCornerRadius="20dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/game_bckg_red" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/green_bckg"
+        style="@style/Colors_Comp"
+        android:layout_toEndOf="@id/red_bckg"
+        app:cardCornerRadius="20dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/game_bckg_green" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/yellow_bckg"
+        style="@style/Colors_Comp"
+        app:cardCornerRadius="20dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp"
+        android:layout_toEndOf="@id/green_bckg">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/game_bckg_yellow" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
     <LinearLayout
         android:id="@+id/first"
         android:layout_width="wrap_content"
@@ -68,10 +130,10 @@
             android:id="@+id/edit_first"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/bck_editxt"
             android:gravity="center"
-            android:layout_gravity="center"
             android:paddingHorizontal="8dp"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -141,8 +203,8 @@
         <EditText
             android:id="@+id/edit_second"
             android:layout_width="wrap_content"
-            android:layout_gravity="center"
             android:layout_height="50dp"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/bck_editxt"
             android:gravity="center"
@@ -303,8 +365,8 @@
         android:layout_below="@id/main_panel"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
-        android:onClick="refresh"
         android:backgroundTint="@color/transparent"
+        android:onClick="refresh"
         app:cardCornerRadius="80dp"
         app:strokeColor="@color/black"
         app:strokeWidth="2dp">
@@ -332,17 +394,17 @@
         android:id="@+id/yutti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="yutti"
         android:layout_below="@id/refreshing"
         android:layout_centerInParent="true"
-        android:textAllCaps="true"
-        android:letterSpacing="0.4"
         android:layout_gravity="center"
-        android:visibility="invisible"
+        android:layout_marginTop="10dp"
+        android:letterSpacing="0.4"
+        android:text="yutti"
+        android:textAllCaps="true"
         android:textColor="@color/white"
+        android:textSize="30sp"
         android:textStyle="bold"
-        android:textSize="30sp"/>
+        android:visibility="invisible" />
 
 
 </RelativeLayout>

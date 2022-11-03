@@ -22,4 +22,13 @@
         <item name="android:text"> </item>
         <item name="android:layout_weight">1</item>
     </style>
+
+<!--style for set color characters-->
+    <style name="Colors_Comp">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginStart">12dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:visibility">invisible</item>
+    </style>
 </resources>

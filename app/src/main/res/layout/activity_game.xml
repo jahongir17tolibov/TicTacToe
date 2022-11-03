@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/game_bckg"
+    tools:context=".Game">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/colors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/transparent"
+        app:cardCornerRadius="50dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_round_color_lens_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/megrim"
+                android:text="colors"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:id="@+id/first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/main_panel"
+        android:layout_below="@id/colors"
+        android:layout_alignStart="@id/main_panel"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        tools:ignore="NotSibling">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/megrim"
+            android:text="1 - player name"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/edit_first"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bck_editxt"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingHorizontal="8dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/colors"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp"
+        android:layout_toStartOf="@id/second"
+        android:layout_toEndOf="@id/first"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/player1s_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/player2s_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/main_panel"
+        android:layout_below="@id/colors"
+        android:layout_alignEnd="@id/main_panel"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/megrim"
+            android:text="2 - player name"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/edit_second"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bck_editxt"
+            android:gravity="center"
+            android:paddingHorizontal="8dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/main_panel"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:layout_marginVertical="160dp"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_1"
+                style="@style/Button_com"
+                android:background="@color/transparent"
+                android:onClick="onClick"
+                tools:ignore="UsingOnClickInXml">
+
+            </Button>
+
+            <View
+                style="@style/Vertical_line"
+                android:background="#000000" />
+
+            <Button
+                android:id="@+id/btn_2"
+                style="@style/Button_com"
+                android:background="@color/transparent"
+                android:onClick="onClick">
+
+            </Button>
+
+            <View
+                style="@style/Vertical_line"
+                android:background="@color/black" />
+
+            <Button
+                android:id="@+id/btn_3"
+                style="@style/Button_com"
+                android:background="@color/transparent"
+                android:onClick="onClick">
+
+            </Button>
+
+        </LinearLayout>
+
+        <View
+            style="@style/Horizontal_line"
+            android:background="@color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_4"
+                style="@style/Button_com"
+                android:background="@color/transparent"
+                android:onClick="onClick">
+
+            </Button>
+
+            <View
+                style="@style/Vertical_line"
+                android:background="@color/black" />
+
+            <Button
+                android:id="@+id/btn_5"
+                style="@style/Button_com"
+                android:background="@color/transparent"
+                android:onClick="onClick">
+
+            </Button>
+
+            <View
+                style="@style/Vertical_line"
+                android:background="@color/black" />
+
+            <Button
+                android:id="@+id/btn_6"
+                style="@style/Button_com"
+                android:background="@color/transparent"
+                android:onClick="onClick">
+
+            </Button>
+
+        </LinearLayout>
+
+        <View
+            style="@style/Horizontal_line"
+            android:background="@color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_7"
+                style="@style/Button_com"
+                android:background="@color/transparent"
+                android:onClick="onClick">
+
+            </Button>
+
+            <View
+                style="@style/Vertical_line"
+                android:background="@color/black" />
+
+            <Button
+                android:id="@+id/btn_8"
+                style="@style/Button_com"
+                android:background="@color/transparent"
+                android:onClick="onClick">
+
+            </Button>
+
+            <View
+                style="@style/Vertical_line"
+                android:background="@color/black" />
+
+            <Button
+                android:id="@+id/btn_9"
+                style="@style/Button_com"
+                android:background="@color/transparent"
+                android:onClick="onClick">
+
+            </Button>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/refreshing"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/main_panel"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:onClick="refresh"
+        android:backgroundTint="@color/transparent"
+        app:cardCornerRadius="80dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="14dp"
+            android:src="@drawable/ic_round_refresh_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/megrim"
+            android:text="refresh"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/yutti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="yutti"
+        android:layout_below="@id/refreshing"
+        android:layout_centerInParent="true"
+        android:textAllCaps="true"
+        android:letterSpacing="0.4"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="30sp"/>
+
+
+</RelativeLayout>

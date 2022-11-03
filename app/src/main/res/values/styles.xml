@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Horizontal tayoqcha-->
+    <style name="Horizontal_line">
+        <item name="android:layout_height">5dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="background">@color/black</item>
+    </style>
+    <!--Vertical ustun-->
+    <style name="Vertical_line">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">5dp</item>
+        <item name="backgroundTint">@color/black</item>
+    </style>
+    <!--Button components-->
+    <style name="Button_com">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:text"> </item>
+        <item name="android:layout_weight">1</item>
+    </style>
+</resources>

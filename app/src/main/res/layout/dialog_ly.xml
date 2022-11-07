@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/radiogr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="20dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radioBtn_blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="blue_themed"
+            android:padding="10dp"
+            android:text="Blue"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:buttonTint="@color/blue_theme"
+            app:useMaterialThemeColors="true"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radioBtn_red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="red_themed"
+            android:padding="10dp"
+            android:text="Red"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:buttonTint="@color/red_theme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioBtn_blue"
+            app:useMaterialThemeColors="true"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radioBtn_green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="green_themed"
+            android:padding="10dp"
+            android:text="Green"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:buttonTint="@color/gree_theme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioBtn_red"
+            app:useMaterialThemeColors="true"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radioBtn_yellow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="yellow_themed"
+            android:padding="10dp"
+            android:text="Yellow"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:buttonTint="@color/yellow_theme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioBtn_green"
+            app:useMaterialThemeColors="true"
+            tools:ignore="MissingConstraints" />
+    </RadioGroup>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

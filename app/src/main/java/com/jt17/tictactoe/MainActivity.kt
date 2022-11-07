@@ -1,5 +1,6 @@
 package com.jt17.tictactoe
 
+import android.annotation.SuppressLint
 import android.app.PendingIntent.getActivity
 import android.content.Intent
 import android.os.Build
@@ -11,6 +12,7 @@ import com.google.android.material.card.MaterialCardView
 
 
 class MainActivity : AppCompatActivity() {
+    @SuppressLint("ObsoleteSdkInt")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

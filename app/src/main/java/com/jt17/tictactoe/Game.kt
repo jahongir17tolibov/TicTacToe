@@ -8,20 +8,23 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.EditText
+import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class Game : AppCompatActivity() {
     var game_pos = 1
-    var count1 = 0
-    var count2 = 0
     var first_GRlist = mutableListOf<Int>()
     var second_GRlist = mutableListOf<Int>()
+    lateinit var dialog: MaterialAlertDialogBuilder
     var click_color = true
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
@@ -30,51 +33,81 @@ class Game : AppCompatActivity() {
 
         val colors_setBTN = findViewById<MaterialCardView>(R.id.colors)
         val main_background = findViewById<RelativeLayout>(R.id.backgroundMAIN)
-        val backg1 = findViewById<MaterialCardView>(R.id.blue_bckg)
-        val backg2 = findViewById<MaterialCardView>(R.id.red_bckg)
-        val backg3 = findViewById<MaterialCardView>(R.id.green_bckg)
-        val backg4 = findViewById<MaterialCardView>(R.id.yellow_bckg)
 
         colors_setBTN.setOnClickListener {
-            if (click_color) {
-                backg1.visibility = View.VISIBLE
-                backg2.visibility = View.VISIBLE
-                backg3.visibility = View.VISIBLE
-                backg4.visibility = View.VISIBLE
-                click_color = false
-            } else {
-                backg1.visibility = View.INVISIBLE
-                backg2.visibility = View.INVISIBLE
-                backg3.visibility = View.INVISIBLE
-                backg4.visibility = View.INVISIBLE
-                click_color = true
-            }
+            val view = layoutInflater.inflate(R.layout.dialog_ly, null)
+
+            dialog = MaterialAlertDialogBuilder(this, R.style.MyCustomizedDialog)
+                .setTitle("Change your color")
+                .setView(view)
+                .setNeutralButton("Cancel") { dialog, which ->
+                    dialog.cancel()
+                }
+                .setPositiveButton("Ok") { dialog, which ->
+                    dialog.dismiss()
+                }
+                .setIcon(R.drawable.ic_round_color_lens_24)
+            dialog.show()
         }
 
-        backg1.setOnClickListener {
-            main_background.setBackgroundResource(R.drawable.game_bckg)
-            change_color(R.color.blue_theme)
-            Toast.makeText(this, "Blue color is set", Toast.LENGTH_SHORT).show()
+        findViewById<TextView>(R.id.first_gamer).setOnClickListener {
+            val view = layoutInflater.inflate(R.layout.editxt_dialog_ly, null)
+
+            dialog = MaterialAlertDialogBuilder(this, R.style.MyCustomizedDialog)
+                .setTitle("enter your name")
+                .setView(view)
+                .setNeutralButton("Cancel") { dialog, which ->
+                    dialog.cancel()
+                }
+                .setPositiveButton("Ok") { dialog, which ->
+                    findViewById<TextView>(R.id.first_gamer).text =
+                        view.findViewById<EditText>(R.id.edit_name).text.toString()
+                    dialog.dismiss()
+                }
+            dialog.show()
         }
 
-        backg2.setOnClickListener {
-            main_background.setBackgroundResource(R.drawable.game_bckg_red)
-            change_color(R.color.red_theme)
-            Toast.makeText(this, "Red color is set", Toast.LENGTH_SHORT).show()
+        //Dialog for first gamer name
+        findViewById<TextView>(R.id.first_gamer).setOnClickListener {
+            val view = layoutInflater.inflate(R.layout.editxt_dialog_ly, null)
+
+            dialog = MaterialAlertDialogBuilder(this, R.style.MyCustomizedDialog)
+                .setTitle("enter your name")
+                .setView(view)
+                .setNeutralButton("Cancel") { dialog, which ->
+                    dialog.cancel()
+                }
+                .setPositiveButton("Ok") { dialog, which ->
+                    findViewById<TextView>(R.id.first_gamer).text =
+                        view.findViewById<EditText>(R.id.edit_name).text.toString()
+                    dialog.dismiss()
+                }
+            dialog.show()
         }
 
-        backg3.setOnClickListener {
-            main_background.setBackgroundResource(R.drawable.game_bckg_green)
-            change_color(R.color.gree_theme)
-            Toast.makeText(this, "Green color is set", Toast.LENGTH_SHORT).show()
+        //Dialog for second gamer name
+        findViewById<TextView>(R.id.second_gamer).setOnClickListener {
+            val view = layoutInflater.inflate(R.layout.editxt_dialog_ly, null)
+
+            dialog = MaterialAlertDialogBuilder(this, R.style.MyCustomizedDialog)
+                .setTitle("Enter your name")
+                .setView(view)
+                .setNeutralButton("Cancel") { dialog, which ->
+                    dialog.cancel()
+                }
+                .setPositiveButton("Ok") { dialog, which ->
+                    findViewById<TextView>(R.id.second_gamer).text =
+                        view.findViewById<EditText>(R.id.edit_name).text.toString()
+                    dialog.dismiss()
+                }
+            dialog.show()
         }
 
-        backg4.setOnClickListener {
-            main_background.setBackgroundResource(R.drawable.game_bckg_yellow)
-            change_color(R.color.yellow_theme)
-            Toast.makeText(this, "Yellow color is set", Toast.LENGTH_SHORT).show()
-        }
+    }
 
+    companion object {
+        var count1 = 0
+        var count2 = 0
     }
 
     private fun change_color(set_col: Int) {
@@ -105,7 +138,7 @@ class Game : AppCompatActivity() {
         startGame(btn_Numb, btn_Select)
     }
 
-
+    //uyin boshlanishi uchun
     private fun startGame(btn_Num: Int, btn: Button) {
         if (game_pos == 1) {
             btn.text = "X"
@@ -121,6 +154,7 @@ class Game : AppCompatActivity() {
     }
 
     //Winnerni aniqlash
+    @SuppressLint("ResourceAsColor")
     private fun checkWinner() {
         var winner = 0
 
@@ -190,10 +224,10 @@ class Game : AppCompatActivity() {
         }
 
         if (winner != 0) {
-
             val str = findViewById<TextView>(R.id.yutti)
             val player1sc = findViewById<TextView>(R.id.player1s_score)
             val player2sc = findViewById<TextView>(R.id.player2s_score)
+
             if (game_pos == 1) {
                 str.text = "0 yutti"
                 str.visibility = View.VISIBLE
@@ -213,7 +247,10 @@ class Game : AppCompatActivity() {
 
     }
 
+    //Uyin tugaganidan keyin tegisnishni
     private fun stopTouch() {
+
+
         findViewById<Button>(R.id.btn_1).isEnabled = false
         findViewById<Button>(R.id.btn_2).isEnabled = false
         findViewById<Button>(R.id.btn_3).isEnabled = false
@@ -227,6 +264,7 @@ class Game : AppCompatActivity() {
         findViewById<Button>(R.id.btn_9).isEnabled = false
     }
 
+    //refresh game
     @SuppressLint("CutPasteId")
     fun refresh(view: View) {
 
@@ -240,6 +278,7 @@ class Game : AppCompatActivity() {
         val b8 = findViewById<Button>(R.id.btn_8)
         val b9 = findViewById<Button>(R.id.btn_9)
         val str = findViewById<TextView>(R.id.yutti)
+
 
         b1.text = ""
         b2.text = ""
@@ -273,5 +312,32 @@ class Game : AppCompatActivity() {
         game_pos = 1
     }
 
+    fun blue_themed(view: View) {
+        val main_background = findViewById<RelativeLayout>(R.id.backgroundMAIN)
+
+        main_background.setBackgroundResource(R.drawable.game_bckg)
+        change_color(R.color.blue_theme)
+    }
+
+    fun red_themed(view: View) {
+        val main_background = findViewById<RelativeLayout>(R.id.backgroundMAIN)
+
+        main_background.setBackgroundResource(R.drawable.game_bckg_red)
+        change_color(R.color.red_theme)
+    }
+
+    fun green_themed(view: View) {
+        val main_background = findViewById<RelativeLayout>(R.id.backgroundMAIN)
+
+        main_background.setBackgroundResource(R.drawable.game_bckg_green)
+        change_color(R.color.gree_theme)
+    }
+
+    fun yellow_themed(view: View) {
+        val main_background = findViewById<RelativeLayout>(R.id.backgroundMAIN)
+
+        main_background.setBackgroundResource(R.drawable.game_bckg_yellow)
+        change_color(R.color.yellow_theme)
+    }
 
 }

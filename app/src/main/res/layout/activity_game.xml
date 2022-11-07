@@ -40,179 +40,111 @@
                 android:layout_marginStart="4dp"
                 android:fontFamily="@font/megrim"
                 android:text="colors"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/blue_bckg"
-        style="@style/Colors_Comp"
-        android:layout_toEndOf="@id/colors"
-        app:cardCornerRadius="20dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="1dp">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/game_bckg" />
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/red_bckg"
-        style="@style/Colors_Comp"
-        android:layout_toEndOf="@id/blue_bckg"
-        app:cardCornerRadius="20dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="1dp">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/game_bckg_red" />
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/green_bckg"
-        style="@style/Colors_Comp"
-        android:layout_toEndOf="@id/red_bckg"
-        app:cardCornerRadius="20dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="1dp">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/game_bckg_green" />
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/yellow_bckg"
-        style="@style/Colors_Comp"
-        app:cardCornerRadius="20dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="1dp"
-        android:layout_toEndOf="@id/green_bckg">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/game_bckg_yellow" />
-
-    </com.google.android.material.card.MaterialCardView>
-
 
     <LinearLayout
-        android:id="@+id/first"
-        android:layout_width="wrap_content"
+        android:id="@+id/hahahaahhaa"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/main_panel"
         android:layout_below="@id/colors"
         android:layout_alignStart="@id/main_panel"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        tools:ignore="NotSibling">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/megrim"
-            android:text="1 - player name"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-
-        <EditText
-            android:id="@+id/edit_first"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bck_editxt"
-            android:gravity="center"
-            android:paddingHorizontal="8dp"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_below="@id/colors"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="50dp"
-        android:layout_toStartOf="@id/second"
-        android:layout_toEndOf="@id/first"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/player1s_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="0"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=":"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/player2s_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/main_panel"
-        android:layout_below="@id/colors"
         android:layout_alignEnd="@id/main_panel"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <TextView
+
+        <LinearLayout
+            android:id="@+id/first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/megrim"
-            android:text="2 - player name"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            tools:ignore="NotSibling">
+
+            <TextView
+                android:id="@+id/iks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="X"
+                android:textColor="@color/black"
+                android:textSize="34sp"
+                android:textStyle="bold" />
 
 
-        <EditText
-            android:id="@+id/edit_second"
+            <TextView
+                android:id="@+id/first_gamer"
+                style="@style/Player_nameee"
+                android:text="player name" />
+
+            <FrameLayout
+                android:id="@+id/fr_x"
+                style="@style/Liner"
+                android:background="@color/black" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bck_editxt"
-            android:gravity="center"
-            android:paddingHorizontal="8dp"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center">
 
+            <TextView
+                android:id="@+id/player1s_score"
+                style="@style/Scoreboard"
+                android:text="0" />
+
+            <TextView
+                style="@style/Scoreboard"
+                android:text=":" />
+
+            <TextView
+                android:id="@+id/player2s_score"
+                style="@style/Scoreboard"
+                android:text="0" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nolik"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/second_gamer"
+                style="@style/Player_nameee"
+                android:layout_width="wrap_content"
+                android:text="player name"
+                tools:ignore="NotSibling" />
+
+
+            <FrameLayout
+                android:id="@+id/fr_0"
+                style="@style/Liner"
+                android:background="@color/black" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -385,6 +317,7 @@
             android:layout_marginStart="10dp"
             android:fontFamily="@font/megrim"
             android:text="refresh"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -398,7 +331,7 @@
         android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:letterSpacing="0.4"
+        android:letterSpacing="0.2"
         android:text="yutti"
         android:textAllCaps="true"
         android:textColor="@color/white"
